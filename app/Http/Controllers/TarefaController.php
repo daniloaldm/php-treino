@@ -10,7 +10,7 @@ class TarefaController extends Controller
     public function index() {
         $tarefas = Tarefa::all();
         $total = Tarefa::all()->count();
-        //return view('list-tarefas', compact('tarefas', 'total'));
+        return view('list-tarefas', compact('tarefas', 'total'));
     }
 
     public function create() {
@@ -34,15 +34,16 @@ class TarefaController extends Controller
 
     public function edit($id) {
         $assignment = Tarefa::findOrFail($id);
-        //return view('alter-tarefa', compact('assignment'));
+        return view('alter-tarefa', compact('assignment'));
     }
 
     public function update(Request $request, $id) {
         $assignment = Tarefa::findOrFail($id); 
-        $assignment->name = $request->name;
-        $assignment->description = $request->description;
-        $assignment->quantity = $request->quantity;
-        $assignment->price = $request->price;
+        $assignment->nome = $request->nome;
+        $assignment->descricao = $request->descricao;
+        $assignment->prazo = $request->prazo;
+        $assignment->prioridade = $request->prioridade;
+        $assignment->situacao = $request->situacao;
         $assignment->save();
         return redirect()->route('assignment.index')->with('message', 'Tarefa alterada com sucesso!');
     }

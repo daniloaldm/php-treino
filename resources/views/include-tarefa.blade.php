@@ -103,16 +103,25 @@
                         </div>                 
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="prioridade"> Prioridade </label>
-                                <input type="text" name="prioridade"                               
-                                       class="form-control">
+                                <label for="prioridade">Prioridade</label>
+                                <select class="form-control" id="exampleFormControlSelect1" name="prioridade">
+                                <option></option>
+                                <option>Alta</option>
+                                <option>Média</option>
+                                <option>Baixa</option>
+                                </select>
                             </div>
+
                         </div>
                         <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="situacao"> Situação </label>
-                                <input type="text" name="situacao"                               
-                                       class="form-control">
+                        <div class="form-group">
+                                <label for="situacao">Situação</label>
+                                <select class="form-control" id="exampleFormControlSelect1" name="situacao">
+                                <option></option>
+                                <option>Concluída</option>
+                                <option>Em processo</option>
+                                <option>Em análise</option>
+                                </select>
                             </div>
                         </div>                           
                         <div class="col-md-12">                   

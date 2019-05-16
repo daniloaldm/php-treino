@@ -83,8 +83,8 @@
                                 <label for="nome">Nome</label>
                                 <input type="text" name="nome" 
                                        class="form-control" 
-                                       value= <?php echo "$assignment->nome" ?>
-                                       required>
+                                       value= "{{$assignment->nome}}"
+                                >
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -92,8 +92,8 @@
                                 <label for="descricao">Descrição</label>
                                 <input type="text" name="descricao" 
                                        class="form-control" 
-                                       value=<?php echo "$assignment->descricao" ?>
-                                       required>
+                                       value="{{$assignment->descricao}}"
+                                >
                             </div>  
                         </div>
                         <div class="col-md-6">
@@ -101,32 +101,34 @@
                                 <label for="prazo">Prazo</label>
                                 <input type="date" name="prazo" 
                                        class="form-control" 
-                                       value=<?php echo "$assignment->prazo" ?>
-                                       required>
+                                       value="{{$assignment->prazo}}"
+                                >
                             </div>
                         </div>
                         <div class="col-md-6">
                         <div class="form-group">
                                 <label for="prioridade">Prioridade</label>
-                                <input type="text" name="prioridade" 
-                                       class="form-control" 
-                                       value=<?php echo "$assignment->prioridade" ?>
-                                       required>
-                            </div>   
+                                <select class="form-control" id="exampleFormControlSelect1" name="prioridade">
+                                <option>{{$assignment->prioridade}}</option>
+                                <option>Alta</option>
+                                <option>Média</option>
+                                <option>Baixa</option>
+                                </select>
+                        </div> 
                         </div>                 
-                        <div class="col-md-6">
+                        <div class="col-md-6">                        
                         <div class="form-group">
                                 <label for="situacao">Situação</label>
-                                <input type="text" name="situacao" 
-                                       class="form-control" 
-                                       value=<?php echo "$assignment->situacao" ?>
-                                       required>
+                                <select class="form-control" id="exampleFormControlSelect1" name="situacao">
+                                <option>{{$assignment->situacao}}</option>
+                                <option>Concluída</option>
+                                <option>Em processo</option>
+                                <option>Em análise</option>
+                                </select>
                             </div>
-                        </div>                       
+                        </div>  
+                        
                         <div class="col-md-12">                   
-                            <button type="reset" class="btn btn-default">
-                                Limpar
-                            </button>
                             <button type="submit" 
                                     class="btn btn-warning" id="black">
                                 Alterar

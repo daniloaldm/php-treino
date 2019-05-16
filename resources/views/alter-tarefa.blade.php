@@ -99,7 +99,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="prazo">Prazo</label>
-                                <input type="date" name="prazo" 
+                                <input type="date" name="prazo" min="<?php echo date('Y-m-d');?>"
                                        class="form-control" 
                                        value="{{$assignment->prazo}}"
                                 >

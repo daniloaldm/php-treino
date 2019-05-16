@@ -19,7 +19,7 @@
         <!-- JavaScript -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <script src="{{URL::asset('js/ajax.js')}}"></script>        
+        <script src="{{URL::asset('js/ajax.js')}}"></script>      
     </head>
     <body>
         <nav class="navbar navbar-inverse navbar-fixed-top">       
@@ -96,7 +96,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="prazo">Prazo</label>
-                                <input type="date" name="prazo" 
+                                <input type="date" min="<?php echo date('Y-m-d');?>" name="prazo" 
                                        class="form-control" 
                                        required>
                             </div>    

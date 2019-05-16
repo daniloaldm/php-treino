@@ -12,6 +12,6 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('include-tarefa');
 });
 Route::resource('assignment','TarefaController');

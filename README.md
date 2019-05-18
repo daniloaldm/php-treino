@@ -47,8 +47,8 @@ E depois:
 
  ```
 composer install
-npm install
 composer global require "laravel/installer=~1.1"
+npm install
 
 ```
 

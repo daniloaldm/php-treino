@@ -113,7 +113,7 @@
                                     <td id="center">{{$tarefa->id}}</td>
                                     <td title="Nome">{{$tarefa->nome}}</td>
                                     <td title="Descrição">{{$tarefa->descricao}}</td>
-                                    <td title="Prazo" id="center">{{$tarefa->prazo}}</td>
+                                    <td title="Prazo" id="center">{{date('d/m/Y', strtotime($tarefa->prazo))}}</td>
                                     <td title="Prioridade" id="center">{{$tarefa->prioridade}}</td>
                                     <td title="Situação" id="center">{{$tarefa->situacao}}</td>
                                     <td id="center">

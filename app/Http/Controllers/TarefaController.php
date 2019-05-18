@@ -7,9 +7,15 @@ use App\Tarefa;
 
 class TarefaController extends Controller
 {
+    private $tarefasModel;
+    public function __construct () {
+        //Nao se esquecer do construtor, para tu nao ter que inicializar a classe varias vezes, só chamar ela uma vez pra ser carregada
+        $this->tarefasModel = new Tarefa;
+    }
+
     public function index() {
-        $tarefas = Tarefa::all();
-        $total = Tarefa::all()->count();
+        $tarefas = $this->tarefasModel->all();
+        $total   = count($tarefas);
         return view('list-tarefas', compact('tarefas', 'total'));
     }
 
@@ -18,13 +24,17 @@ class TarefaController extends Controller
     }
 
     public function store(Request $request) {
-        $assignment = new Tarefa;
-        $assignment->nome = $request->nome;
-        $assignment->descricao = $request->descricao;
-        $assignment->prazo = $request->prazo;
-        $assignment->prioridade = $request->prioridade;
-        $assignment->situacao = $request->situacao;
-        $assignment->save();
+        //Quero Salvar no Banco, como tu criou uma Model, tu utiliza o metodo do Eloquent
+        //Tem Varios Modoso temos a função insertGetId que insere no banco e retorna o id do objeto que foi salvo
+        // Tem o firstOrCreate que ele vai verificar todos os parametros, se tiver tudo diferente ele cria um novo registro no banco
+        // e temos o mais comum o insert
+        $this->tarefasModel->insert([
+            'nome'          => $request->nome,
+            'descricao'     => $request->descricao,
+            'prazo'         => $request->prazo,
+            'prioridade'    => $request->prioridade,
+            'situacao'      => $request->situacao
+        ]);
         return redirect()->route('assignment.index')->with('message', 'Tarefa criada com sucesso!');
     }
 
@@ -33,24 +43,26 @@ class TarefaController extends Controller
     }
 
     public function edit($id) {
-        $assignment = Tarefa::findOrFail($id);
+        $assignment =$this->tarefasModel->findOrFail($id);
         return view('alter-tarefa', compact('assignment'));
     }
 
     public function update(Request $request, $id) {
-        $assignment = Tarefa::findOrFail($id); 
-        $assignment->nome = $request->nome;
-        $assignment->descricao = $request->descricao;
-        $assignment->prazo = $request->prazo;
-        $assignment->prioridade = $request->prioridade;
-        $assignment->situacao = $request->situacao;
-        $assignment->save();
+        //Update é quase a mesma coisa do store só vamos add mais algumas funcoes
+        $this->tarefasModel
+            ->where('id', $id)
+            ->update([
+                'nome'          => $request->nome,
+                'descricao'     => $request->descricao,
+                'prazo'         => $request->prazo,
+                'prioridade'    => $request->prioridade,
+                'situacao'      => $request->situacao
+            ]);
         return redirect()->route('assignment.index')->with('message', 'Tarefa alterada com sucesso!');
     }
 
     public function destroy($id) {
-        $assignment = Tarefa::findOrFail($id);
-        $assignment->delete();
+        $assignment = $this->tarefasModel->where('id', $id)->delete();
         return redirect()->route('assignment.index')->with('message', 'Tarefa excluída com sucesso!');
     }
 

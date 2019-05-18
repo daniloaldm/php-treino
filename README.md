@@ -48,7 +48,6 @@ E depois:
  ```
 composer install
 php artisan key:generate
-composer global require "laravel/installer"
 
 ```
 

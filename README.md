@@ -66,9 +66,9 @@ DB_PASSWORD=
 
 Navegue até a pasta do projeto via terminal, e execute o comando
 ```
-php -S localhost:8080
+php artisan serve
 ```
-Acesse http://localhost/8080 no browser
+Acesse http://127.0.0.1:8000 no browser
 
 No próprio repositório tem um documento .SQL, que é o script pro banco de dados, basta importar ele no seu banco de dados,e utilizá-lo para a aplicação.
 

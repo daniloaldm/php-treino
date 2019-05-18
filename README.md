@@ -43,6 +43,15 @@ operações
 Faça o download ou clone o repositório
 https://github.com/daniloaldm/php-treino
 
+E depois:
+
+ ```
+composer install
+npm install
+composer global require "laravel/installer=~1.1"
+
+```
+
 
 Agora você está pronto para executar, mas lembre-se de alterar suas credenciais de banco de dados dentro de .env:
 
